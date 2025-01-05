@@ -1379,8 +1379,8 @@ def selectMtpStorageId():
 
 	if not cardsPresentBitmap:
 		applog_e("There are no media card(s) present or card(s) are busy!")
-		sys.exit(ERRNO_NO_CARD_MEDIA_AVIALABLE)
-
+		# sys.exit(ERRNO_NO_CARD_MEDIA_AVIALABLE)
+		
 	if g.args['slot'] == 'firstfound':
 		# use first slot that's populated
 		storageId = mtpStorageIds.storageIdsList[firstCardPresent]
@@ -1858,7 +1858,7 @@ def createMtpObjectFromHandle(objHandle, createMtpObjectStatsStruct=None, cached
 def createMtpObjectsFromHandleList(objHandlesList, createMtpObjectStatsStruct=None, cachedMtpObjectInfoListDict=None, fFindAndCreateAntecendentDirs=True):
 	numObjectHandles = len(objHandlesList)
 	for nObjIndex in xrange(0, numObjectHandles):
-		consoleWriteLine("\rRetrieving list of images/files from camera: {:d}/{:d}     ".format(nObjIndex, numObjectHandles))
+		# consoleWriteLine("\rRetrieving list of images/files from camera: {:d}/{:d}     ".format(nObjIndex, numObjectHandles))
 		createMtpObjectFromHandle(objHandlesList[nObjIndex], createMtpObjectStatsStruct, cachedMtpObjectInfoListDict, fFindAndCreateAntecendentDirs)
 	consoleClearLine()
 

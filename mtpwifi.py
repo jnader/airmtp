@@ -319,6 +319,9 @@ def execMtpOp(s, mtpOp, cmdArgsPacked=six.binary_type(), dataToSend=six.binary_t
 					applog_d(strutil.hexdump(data))
 				
 				if mtpRespCode != MTP_RESP_Ok:
+					if mtpRespCode == MTP_RESP_StoreNotAvailable:
+						applog_i("No SD Card detected")
+						continue
 					raise MtpOpExecFailureException(mtpRespCode, "Camera Command Failed: {:s}, Error: {:s}".format(getMtpOpDesc(mtpOp), getMtpRespDesc(mtpRespCode)))
 
 				#
